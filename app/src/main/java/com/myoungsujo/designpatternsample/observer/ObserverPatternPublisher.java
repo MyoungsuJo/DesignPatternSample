@@ -12,11 +12,15 @@ public class ObserverPatternPublisher implements IPublisher {
 
     private ArrayList<IObserver> listObserver;
 
-    public ObserverPatternPublisher(@NonNull  IObserver observer){
+    public ObserverPatternPublisher(){
         if(listObserver == null) {
             listObserver = new ArrayList<IObserver>();
         }
 
+    }
+
+    public void doPublishing(){
+        notifyObserver();
     }
 
     @Override
@@ -42,7 +46,7 @@ public class ObserverPatternPublisher implements IPublisher {
     public void notifyObserver() {
         if(listObserver != null) {
             for (IObserver o : listObserver) {
-                o.update("a", "b", this);
+                o.update("a", "b");
             }
         }
     }

@@ -4,6 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.myoungsujo.designpatternsample.builder.BuilderPattern;
+import com.myoungsujo.designpatternsample.facade.PersonalTraning;
+import com.myoungsujo.designpatternsample.facade.Shower;
+import com.myoungsujo.designpatternsample.facade.TraningCenter;
+import com.myoungsujo.designpatternsample.facade.Yoga;
+import com.myoungsujo.designpatternsample.observer.ObserverPattern;
+import com.myoungsujo.designpatternsample.observer.ObserverPatternPublisher;
 import com.myoungsujo.designpatternsample.templete.AbstractTemplateMethod;
 import com.myoungsujo.designpatternsample.templete.TemplateMethod;
 import com.myoungsujo.designpatternsample.templete.TemplateMethod2;
@@ -20,11 +26,19 @@ public class MainActivity extends AppCompatActivity {
         // 1. Builder
         BuilderPattern builderPattern = new BuilderPattern.Builder("a","b","c").build();
         // 2. Observer
+        ObserverPatternPublisher publisher = new ObserverPatternPublisher();
+        ObserverPattern observerPattern = new ObserverPattern(publisher);
 
+        publisher.doPublishing();
         // 3. Factory Method
 
         // 4. Facade
+        PersonalTraning pt = new PersonalTraning();
+        Yoga yoga = new Yoga();
+        Shower shower = new Shower();
 
+        TraningCenter traningCenter = new TraningCenter(pt,yoga,shower);
+        traningCenter.doPersonalTraning();
         // 5. Chain of Responsibility
 
         // 6. Prototype
