@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.myoungsujo.designpatternsample.builder.BuilderPattern;
+import com.myoungsujo.designpatternsample.templete.AbstractTemplateMethod;
+import com.myoungsujo.designpatternsample.templete.TemplateMethod;
+import com.myoungsujo.designpatternsample.templete.TemplateMethod2;
 
 // 패턴 테스트용 액티비티
 // 차후 프로젝트에 패턴적용시 쉽게 하려고?!
@@ -27,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
         // 6. Prototype
 
         // 7. Template Method
+        AbstractTemplateMethod templateMethod = new TemplateMethod();
+        templateMethod.doThat();
+
+        AbstractTemplateMethod templateMethod2 = new TemplateMethod2();
+        templateMethod2.doThat();
 
         // 8. Visitor
 

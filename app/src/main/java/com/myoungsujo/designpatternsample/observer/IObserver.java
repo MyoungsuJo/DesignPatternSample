@@ -5,5 +5,5 @@ package com.myoungsujo.designpatternsample.observer;
  */
 
 public interface IObserver {
-    public void update(final String msg, final String data, IPublisher publisher);
+    public void update(final String msg, final String data);
 }
